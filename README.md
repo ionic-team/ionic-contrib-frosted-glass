@@ -3,6 +3,8 @@ Ionic Frosted Glass
 
 An optional frosted-glass effect for iOS 7 styled Ionic apps.
 
+[Demo here](http://ionicframework.com/demos/frosted-glass/)
+
 To use, include `ionic.contrib.frostedGlass.css` and `ionic.contrib.frostedGlass.js` in your app.
 
 Then, apply the `frosted-bar` attribute directive to a `<header-bar>` or `<nav-bar>` to get the frosted effect. Note: you must also
