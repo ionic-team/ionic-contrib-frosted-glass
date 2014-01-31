@@ -24,3 +24,24 @@ iMessage:
   </pane>
 </body>
 ```
+
+Unfortunately, it's not feasible to auto blur the content if it changes. To notify the frosted glass system to redraw itself, you can use the `$ionicFrostedDelegate` service:
+
+```javascript
+controller('MyCtrl', function($scope, $ionicFrostedDelegate, $ionicScrollDelegate) {
+  $scope.addNew = function() {
+    // Add new data
+    
+    // Resize the scroll area
+    $ionicScrollDelegate.resize();
+
+    // Update the frosted glass system
+    $ionicFrostedDelegate.update();
+
+    // If you wish, scroll to the bottom of the scroll box to show the new content
+    $timeout(function() {
+      $ionicScrollDelegate.scrollBottom(true);
+    }, 1);
+  }
+});
+```
