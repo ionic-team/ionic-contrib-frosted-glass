@@ -25,6 +25,9 @@ angular.module('ionic.contrib.frostedGlass', ['ionic'])
       return;
     }
 
+    var scrollStart = content.style[ionic.CSS.TRANSFORM];
+    var startY = parseFloat(scrollStart.replace('translate3d(', '').split(',')[1]) || 0;
+
     // Get the top offset position for headers, etc. on this content area
     var contentOffset = content.parentNode.offsetTop;
 
@@ -45,6 +48,7 @@ angular.module('ionic.contrib.frostedGlass', ['ionic'])
       // Move the clone up as we scroll
       contentCloned.style[ionic.CSS.TRANSFORM] = 'translate3d(0,' + (-e.detail.scrollTop + contentOffset) + 'px, 0)';
     });
+    contentCloned.style[ionic.CSS.TRANSFORM] = 'translate3d(0,' + (startY + contentOffset) + 'px, 0)';
 
     // Append the blur box into this element
     $element.append(blurContent);
