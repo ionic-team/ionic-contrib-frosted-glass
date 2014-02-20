@@ -33,14 +33,14 @@
   -->
   <body ng-app="starter" animation="slide-left-right-ios7">
 
-    <pane ng-controller="PageCtrl">
-      <header-bar frosted-bar title="'Blurred...man!'" type="bar-frosted"></header-bar>
-      <content has-header="true" has-footer="true" padding="true" start-y="120">
+    <ion-pane ng-controller="PageCtrl">
+      <ion-header-bar frosted-bar title="'Blurred...man!'" type="bar-frosted"></ion-header-bar>
+      <ion-content has-header="true" has-footer="true" padding="true" start-y="120">
         <ol class="messages">
-					<li ng-repeat="message in messages" ng-bind-html="message.content">
+					<li ng-repeat="message in messages" ion-bind-html-unsafe="message.content">
 					</li>
 				</ol>
-      </content>
+      </ion-content>
       <footer class="bar bar-footer bar-frosted">
         <button class="button button-clear button-positive" ng-click="add()">Add Message</button>
       </footer>
