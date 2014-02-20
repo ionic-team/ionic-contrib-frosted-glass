@@ -72,7 +72,7 @@ angular.module('ionic.contrib.frostedGlass', ['ionic'])
       // timeout so we allow child directives to
       // render children
       $timeout(function() {
-        window.rAF(function() {
+        ionic.requestAnimationFrame(function() {
           blurContent = clone($element);
         });
       });
