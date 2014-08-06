@@ -61,7 +61,7 @@ angular.module('ionic.contrib.frostedGlass', ['ionic'])
       var blurContent = null;
 
       $rootScope.$on('ionicFrosted.update', function() {
-        window.rAF(function() {
+        window.requestAnimationFrame(function() {
           if(blurContent) {
             blurContent.remove();
             blurContent = clone($element);
