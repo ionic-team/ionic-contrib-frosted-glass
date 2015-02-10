@@ -20,7 +20,9 @@ angular.module('ionic.contrib.frostedGlass', ['ionic'])
   var clone = function($element) {
     var el = $element[0];
 
-    var content = $element.parent()[0].querySelector('.scroll');
+    var scrollList = $element.parent()[0].querySelectorAll('.scroll');
+    var length = scrollList.length;
+    var content = scrollList[length - 1];
     if(!content) {
       return;
     }
