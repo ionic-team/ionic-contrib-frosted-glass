@@ -32,7 +32,11 @@ angular.module('ionic.contrib.frostedGlass', ['ionic'])
     var contentOffset = content.parentNode.offsetTop;
 
     // Get the height of the header to know how much to offset the content blur
-    var elHeight = el.offsetHeight;
+    if(el.nodeName == "ION-NAV-BAR" && el.offsetHeight == 0) {
+      var elHeight = el.querySelector("ion-header-bar").offsetHeight;
+    }else {
+      var elHeight = el.offsetHeight;
+    }
 
     // Clone the content
     var contentCloned = content.cloneNode(true);
