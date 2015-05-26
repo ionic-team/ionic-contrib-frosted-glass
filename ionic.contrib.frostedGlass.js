@@ -20,7 +20,9 @@ angular.module('ionic.contrib.frostedGlass', ['ionic'])
   var clone = function($element) {
     var el = $element[0];
 
-    var content = $element.parent()[0].querySelector('.scroll');
+    var scrollList = $element.parent()[0].querySelectorAll('.scroll');
+    var length = scrollList.length;
+    var content = scrollList[length - 1];
     if(!content) {
       return;
     }
@@ -28,11 +30,15 @@ angular.module('ionic.contrib.frostedGlass', ['ionic'])
     var scrollStart = content.style[ionic.CSS.TRANSFORM];
     var startY = parseFloat(scrollStart.replace('translate3d(', '').split(',')[1]) || 0;
 
-    // Get the top offset position for headers, etc. on this content area
-    var contentOffset = content.parentNode.offsetTop;
+    // Get the top offset position for headers, subheaders, etc. on this content area
+    var contentOffset = content.parentNode.offsetTop - el.offsetTop;
 
     // Get the height of the header to know how much to offset the content blur
-    var elHeight = el.offsetHeight;
+    if(el.nodeName == "ION-NAV-BAR" && el.offsetHeight == 0) {
+      var elHeight = el.querySelector("ion-header-bar").offsetHeight;
+    }else {
+      var elHeight = el.offsetHeight;
+    }
 
     // Clone the content
     var contentCloned = content.cloneNode(true);
