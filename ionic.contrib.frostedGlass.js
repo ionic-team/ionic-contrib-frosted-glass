@@ -29,7 +29,7 @@ angular.module('ionic.contrib.frostedGlass', ['ionic'])
     var startY = parseFloat(scrollStart.replace('translate3d(', '').split(',')[1]) || 0;
 
     // Get the top offset position for headers, subheaders, etc. on this content area
-    var contentOffset = var contentOffset = content.parentNode.offsetTop - el.offsetTop;
+    var contentOffset = content.parentNode.offsetTop - el.offsetTop;
 
     // Get the height of the header to know how much to offset the content blur
     if(el.nodeName == "ION-NAV-BAR" && el.offsetHeight == 0) {
